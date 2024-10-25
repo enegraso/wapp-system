@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../app/actions/users";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import Agrobombas from "../assets/images/agrobombas.logo.jpg"
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-green-600 p-4 shadow-md">
+    <nav className="bg-[#0e6fa5] p-4 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex flex-row items-center space-x-4">
           <Link
@@ -24,11 +25,11 @@ const Navbar = () => {
             className="text-white text-xl font-semibold hover:text-gray-200 transition duration-300 flex flex-row gap-4 justify-center items-center"
           >
             <img
-              src={logo}
+              src={Agrobombas}
               alt="Logo Wapp Message System"
-              className="w-8 h-8"
+              className="w-16 h-10 rounded-md"
             />
-            WApp Message System
+            Agro Bombas Bragado
           </Link>
         </div>
         <div className="lg:hidden">
@@ -66,42 +67,49 @@ const Navbar = () => {
               >
                 {t("navbar.home")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/show-groups"
               >
                 {t("navbar.groups")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/show-contacts"
               >
                 {t("navbar.contacts")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/show-messages"
               >
                 {t("navbar.messages")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/queue-messages"
               >
                 {t("navbar.stack")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/sended-messages"
               >
                 {t("navbar.sent")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/show-receipts"
               >
                 {t("navbar.received")}
               </Link>
+
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
                 to="/show-configs"
@@ -109,6 +117,7 @@ const Navbar = () => {
                 {t("navbar.settings")}
               </Link>
             </>
+            
           )}
           {login.id && (
             <button

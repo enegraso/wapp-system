@@ -83,7 +83,7 @@ const EditGroup = () => {
           return (
             <Form onSubmit={handleSubmit} className="border rounded p-4 max-w-xl w-full mx-auto">
               <div className="mb-4">
-                <label htmlFor="category" className="block text-sm font-medium text-gray-700">Grupo:</label>
+                <label htmlFor="category" className="block text-sm font-medium text-gray-700">Nombres:</label>
                 <input
                   type="text"
                   className={`shadow form-input block w-full mt-1 ${errors.category ? 'border-red-500' : 'border-gray-300'} rounded`}
@@ -98,7 +98,7 @@ const EditGroup = () => {
               </div>
 
               <div className="mb-4">
-                <label htmlFor="description" className="block text-sm font-medium text-gray-700">Descripción:</label>
+                <label htmlFor="description" className="block text-sm font-medium text-gray-700">Grupo:</label>
                 <input
                   type="text"
                   className={`shadow form-input block w-full mt-1 ${errors.description ? 'border-red-500' : 'border-gray-300'} rounded`}
