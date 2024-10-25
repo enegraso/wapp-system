@@ -77,6 +77,13 @@ const Navbar = () => {
 
               <Link
                 className="text-white hover:text-gray-300 transition duration-300"
+                to="/show-families"
+              >
+                {t("Familias")}
+              </Link>
+
+              <Link
+                className="text-white hover:text-gray-300 transition duration-300"
                 to="/show-contacts"
               >
                 {t("navbar.contacts")}
@@ -153,6 +160,7 @@ const Navbar = () => {
               {[
                 { to: "/", text: t("navbar.home") },
                 { to: "/show-groups", text: t("navbar.groups") },
+                { to: "/show-families", text: t("navbar.families") },
                 { to: "/show-contacts", text: t("navbar.contacts") },
                 { to: "/show-messages", text: t("navbar.messages") },
                 { to: "/queue-messages", text: t("navbar.stack") },
