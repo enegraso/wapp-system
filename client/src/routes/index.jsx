@@ -23,6 +23,9 @@ import QueuedView from "../features/messages/QueueView";
 import SendedView from "../features/messages/SendedView";
 import ReceiptsView from "../features/receipts/ReceiptsView";
 import EditMessage from "../features/messages/EditMessage";
+import FamiliesView from "../features/families/FamiliesView";
+import AddFamily from "../features/families/AddFamilies";
+import EditFamily from "../features/families/EditFamilies";
 
 const Layout = ({ children }) => {
   return (
@@ -53,6 +56,10 @@ const Index = () => {
           <Route path="/show-groups" element={<GroupsView />} />
           <Route path="/add-group" element={<AddGroup />} />
           <Route path="/edit-group" element={<EditGroup />} />
+
+          <Route path="/show-families" element={<FamiliesView />} />
+          <Route path="/add-families" element={<AddFamily />} />
+          <Route path="/edit-families" element={<EditFamily/>} />
 
           <Route path="/show-contacts" element={<ContactsView />} />
           <Route path="/add-contact" element={<AddContact />} />

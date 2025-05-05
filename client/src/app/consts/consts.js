@@ -47,6 +47,12 @@ export const resMessagesEndpoint = REACT_APP_API + 'messages/result/';
 export const senMessagesEndpoint = REACT_APP_API + 'messages/sended/';
 export const queMessagesEndpoint = REACT_APP_API + 'messages/queue/';
 
+// Families
+export const allFamiliesEndpoint = REACT_APP_API + 'families';
+export const addFamilyEndpoint = REACT_APP_API + 'families/add';
+export const delFamilyEndpoint = REACT_APP_API + 'families/delete';
+export const updateFamilyEndpoint = REACT_APP_API + 'families/update';
+
 // receipts
 
 export const userReceiptsEndpoint = REACT_APP_API + 'receipts/byuser/'

@@ -21,7 +21,7 @@ const AddGroup = () => {
   return (
     <div class="container mx-auto px-4 py-5 flex flex-col flex-grow">
       <h2 class="text-left text-xl font-bold uppercase mb-2 mx-8 my-5" style={{ letterSpacing: "2px" }}>
-        Agregar Grupo
+        Agregar Proveedor
       </h2>
       <Formik
         validationSchema={schema}
@@ -78,7 +78,7 @@ const AddGroup = () => {
               >
                 <div class="mb-4">
                   <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
-                    Grupo:
+                    Nombres:
                   </label>
                   <input
                     type="text"
@@ -93,7 +93,7 @@ const AddGroup = () => {
                 </div>
                 <div class="mb-4">
                   <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
-                    Descripción:
+                    Numeros:
                   </label>
                   <input
                     type="text"
@@ -108,9 +108,9 @@ const AddGroup = () => {
                 </div>
                 <button
                   type="submit"
-                  class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#0e6fa5] hover:bg-[#0e6fa5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                 >
-                  Agregar Grupo
+                  Agregar Proveedor
                 </button>
               </Form>
             )

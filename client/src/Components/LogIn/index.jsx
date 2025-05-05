@@ -14,6 +14,7 @@ import { eye } from 'react-icons-kit/feather/eye';
 import { useTranslation } from "react-i18next";
 import Spain from '../../assets/images/spain.jpg'
 import Usa from '../../assets/images/usa.jpg'
+import Agrobombas from '../../assets/images/agrobombas.logo.jpg'
 
 
 const LogIn = () => {
@@ -49,11 +50,11 @@ const LogIn = () => {
     };
 
     return (
-        <div className="fixed inset-0 bg-gradient-to-r bg-green-500 to-white flex items-center justify-center">
+        <div className="fixed inset-0 bg-gradient-to-r bg-[#0e6fa5] to-white flex items-center justify-center">
             <div className="absolute top-4 left-4">
                 <Link to="/" className="text-white text-xl font-semibold hover:text-gray-500 transition duration-300 flex flex-row gap-4 justify-center items-center">
-                    <img src={logo} alt="Logo Wapp Message System" className="w-8 h-8" />
-                    WApp Message System
+                    <img src={Agrobombas} alt="Logo Agrobombas Bragado" className="w-18 h-12 rounded-md" />
+                    Agro Bombas Bragado
                 </Link>
 
             </div>
@@ -68,7 +69,7 @@ const LogIn = () => {
                     </button>
                     <button
                         onClick={() => changeLanguage('es')}
-                        className={`flex items-center px-3 py-2 rounded ${isActive('es') ? 'bg-green-700 text-white' : 'bg-gray-200 text-gray-700'}`}
+                        className={`flex items-center px-3 py-2 rounded ${isActive('es') ? 'bg-[#0e6fa5] border text-white' : 'bg-gray-200 text-gray-700'}`}
                     >
                         <img src={Spain} alt="Español" className="w-4 h-4 mr-2" />
                         ES
@@ -77,7 +78,7 @@ const LogIn = () => {
             </div>
             <div className="bg-white rounded-lg p-8 max-w-md w-full">
                 <h2 className="text-center text-2xl font-bold mb-5">
-                    WappSystem
+                    ¡Bienvenido!
                 </h2>
 
                 <Formik
@@ -155,19 +156,19 @@ const LogIn = () => {
                                     {errors.password && touched.password && <p className="text-red-500 text-xs italic">{errors.password}</p>}
                                 </div>
                                 <div className="flex items-center justify-between row">
-                                    <button type="submit" disabled={isSubmitting} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    <button type="submit" disabled={isSubmitting} className="bg-[#0e6fa5] hover:bg-[#3bc7f3] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                         {t("login.login")}
                                     </button>
                                     <div className='flex flex-row items-center justify-center'>
                                         <button
                                             onClick={() => navigate('/login')}
-                                            className="inline-block align-baseline font-semibold text-sm hover:text-green-700 pr-1"
+                                            className="inline-block align-baseline font-semibold text-sm hover:text-[#3bc7f3] pr-1"
                                         >
                                             {t("login.register")}
                                         </button>
                                         <button
                                             onClick={() => navigate('/register')}
-                                            className="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-700"
+                                            className="inline-block align-baseline font-bold text-sm text-[#0e6fa5] hover:text-[#3bc7f3]"
                                         >
                                             {t("login.register1")}
 

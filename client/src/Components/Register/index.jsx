@@ -17,6 +17,8 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 /* import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css"; */
+import Agrobombas from '../../assets/images/agrobombas.logo.jpg'
+
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -48,11 +50,11 @@ const Register = () => {
     }
 
     return (
-        <div className="fixed inset-0 bg-gradient-to-r bg-green-500 to-white flex items-center justify-center">
+        <div className="fixed inset-0 bg-gradient-to-r bg-[#0e6fa5] to-white flex items-center justify-center">
             <div className="absolute top-4 left-4">
                 <Link to="/" className="text-white text-xl font-semibold hover:text-gray-500 transition duration-300 flex flex-row gap-4 justify-center items-center">
-                    <img src={logo} alt="Logo Wapp Message System" className="w-8 h-8" />
-                    WApp Message System
+                    <img src={Agrobombas} alt="Logo Wapp Message System" className='w-18 h-12 rounded-md '/>
+                    Agro Bombas Bragado
                 </Link>
             </div>
             <div className="bg-white rounded-lg p-8 max-w-md w-full relative">
@@ -208,14 +210,14 @@ const Register = () => {
                                         {errors.repassword && touched.repassword && <p className="text-red-500 text-xs italic">{errors.repassword}</p>}
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <button type="submit" disabled={isSubmitting} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        <button type="submit" disabled={isSubmitting} className="bg-[#0e6fa5] hover:bg-[#3bc7f3] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                             Registrarme
                                         </button>
                                         <div className='flex flex-row items-center justify-center'>
                                             Ya tienes cuenta?
                                             <button
                                                 onClick={() => navigate('/login')}
-                                                className="inline-block align-baseline font-bold text-sm text-green-500 hover:text-green-700"
+                                                className="inline-block align-baseline font-bold text-sm text-[#0e6fa5] hover:text-[#3bc7f3]"
                                             >
                                                 Ingresa
                                             </button>
