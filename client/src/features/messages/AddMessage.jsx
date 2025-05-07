@@ -13,8 +13,8 @@ let dataGroup = [];
 
 const formatDate = (date) => {
   const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of the year
+  const month = date.getMonth().toString().padStart(2, '0');
+  const year = date.getFullYear().toString().slice(-2);
   return `${day}-${month}-${year}`;
 };
 
@@ -25,9 +25,7 @@ const AddMessage = () => {
   const configs = useSelector((state) => state.configsReducer.configs);
   const groups = useSelector((state) => state.groupsReducer.groups);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  // senddate, sendtime, sended, sendedate, sendedtime
+  const navigate = useNavigate(); 
 
   const hoy = new Date()/* .toLocaleDateString();  */
   const [textm, setTextM] = useState("");
@@ -202,8 +200,8 @@ const AddMessage = () => {
                 ...message,
                 sendeddate: fecha,
                 sendedtime: hora,
-                sended: response.data.status === "success" ? true : false,
-                result: response.data.status // "Mensaje enviado con éxito"
+                sended: response?.data.status === "success" ? true : false,
+                result: response?.data.status // "Mensaje enviado con éxito"
               }
 
               dispatch(messageAdd(objMess));
@@ -557,7 +555,7 @@ const AddMessage = () => {
           </div>
         </div>
 
-        <button className="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" type="submit">
+        <button className="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-[#0e6fa5] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" type="submit">
           Enviar Mensaje
         </button>
       </form>

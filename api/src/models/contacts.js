@@ -2,6 +2,10 @@ const { DataTypes } = require("sequelize");
 
 module.exports = function (sequelize) {
   return sequelize.define("contacts", {
+    avatar: {
+      type: DataTypes.STRING,
+      allowNull: true,     
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,

@@ -9,10 +9,9 @@ const EditContact = () => {
   const location = useLocation();
   const categs = useSelector((state) => state.groupsReducer.groups);
   const dispatch = useDispatch();
-  // console.log(location.state);
   const [id] = useState(location.state.id);
   const [name, setName] = useState(location.state.name);
-  const editphone = location.state.cellphone.substring(0,2) === "54" ? "+" + location.state.cellphone.slice(0, 2) + location.state.cellphone.slice(3, 13) : "+" + location.state.cellphone // location.state.cellphone.slice(3, 13);
+  const editphone = location.state.cellphone.substring(0, 2) === "54" ? "+" + location.state.cellphone.slice(0, 2) + location.state.cellphone.slice(3, 13) : "+" + location.state.cellphone // location.state.cellphone.slice(3, 13);
   const valuephone = "+" + location.state.cellphone.slice(0, 2) + location.state.cellphone.slice(3, 13);
   const [cellphone, setCellphone] = useState(editphone);
   const [groups, setGroups] = useState(location.state.categories);
@@ -20,10 +19,7 @@ const EditContact = () => {
     categories: [],
   });
 
-  console.log("Numero:", parsePhoneNumber(editphone))
-  console.log("Pais", parsePhoneNumber(cellphone).country)
-  console.log("Nombre: ",location.state.name);
-  console.log("categories: ",location.state.categories);
+
   let data = [];
   let txtdata = [];
 
@@ -73,7 +69,7 @@ const EditContact = () => {
     e.preventDefault();
     console.log(groups, input.categories);
     // setGroups(input.categories)
-    const numphone = cellphone.substring(0,3) === "+54" ? cellphone.slice(1, 3) + "9" + cellphone.slice(3, 13) : cellphone.replace("+","") // cellphone.slice(1, 3) + "9" + cellphone.slice(3, 13); // cellphone.slice(0, 2) + "9" + cellphone.slice(2, 12);
+    const numphone = cellphone.substring(0, 3) === "+54" ? cellphone.slice(1, 3) + "9" + cellphone.slice(3, 13) : cellphone.replace("+", "") // cellphone.slice(1, 3) + "9" + cellphone.slice(3, 13); // cellphone.slice(0, 2) + "9" + cellphone.slice(2, 12);
     dispatch(
       contactUpdate({ id, name, cellphone: numphone, groups: input.categories })
     );
@@ -90,6 +86,44 @@ const EditContact = () => {
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
 
       >
+        <div className="mb-3">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            for="name"
+          >
+            Name:
+          </label>
+          <input
+            type="text"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            for="cellphon"
+          >
+            Cellphone:
+          </label>
+          <PhoneInput
+            id="cellphone"
+            // country={parsePhoneNumber(cellphone).country}
+            defaultCountry={parsePhoneNumber(cellphone).country}
+            // defaultValue={valuephone}
+            enableSearch={true}
+            value={cellphone}
+            inputStyle={{
+              height: "19px",
+              width: "inherit",
+            }}
+            onChange={(cellphone) => { setCellphone(cellphone) }}
+            placeholder="Número de celular"
+          />
+        </div>
         <div className="mb-3">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -142,44 +176,7 @@ const EditContact = () => {
           </div>
         </div>
 
-        <div className="mb-3">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            for="name"
-          >
-            Name:
-          </label>
-          <input
-            type="text"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            for="cellphon"
-          >
-            Cellphone:
-          </label>
-          <PhoneInput
-            id="cellphone"
-            // country={parsePhoneNumber(cellphone).country}
-            defaultCountry={parsePhoneNumber(cellphone).country}
-            // defaultValue={valuephone}
-            enableSearch={true}
-            value={cellphone}
-            inputStyle={{
-              height: "19px",
-              width: "inherit",
-            }}
-            onChange={(cellphone) => {setCellphone(cellphone)}} 
-            placeholder="Número de celular"
-          />
-        </div>
+
 
         <button
           type="submit"

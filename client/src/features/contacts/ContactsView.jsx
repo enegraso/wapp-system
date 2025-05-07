@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { FcAddRow } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import { contactDelete, contactsFilter, contactsRestore, contactsSort } from "../../app/actions/contacts";
+import { contactDelete, contactsFilter, contactsSort } from "../../app/actions/contacts";
 import { ASC, DES } from "../../app/consts/consts";
 import { useTranslation } from "react-i18next";
 import { Autocomplete, TextField, Select, MenuItem, InputLabel, FormControl } from "@mui/material";
@@ -14,7 +14,7 @@ const ContactsView = () => {
   const contacts = useSelector((state) => state?.contactsReducer?.contacts);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [pagContacts, setPagContacts] = useState(1); // comienza en página 1
+  const [pagContacts, setPagContacts] = useState(1);
   const [encontrados, setEncontrados] = useState([]);
   const itemsPPage = 15;
   const totalItems = pagContacts * itemsPPage;
@@ -25,6 +25,7 @@ const ContactsView = () => {
 
   const [order, setOrder] = useState("");
   const [filter, setFilter] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const handleOrderChange = async (event) => {
     setOrder(event.target.value);
@@ -33,7 +34,6 @@ const ContactsView = () => {
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
-    // Manejar el cambio en el filtro
     dispatch(contactsFilter(event.target.value, contacts));
   };
 
@@ -52,6 +52,7 @@ const ContactsView = () => {
   };
 
   const handleSearch = (event, value) => {
+    setSearchValue(value);
     const query = value ? value.toLowerCase() : '';
     const dataEncontrados = contacts.filter((contact) => contact.name.toLowerCase().includes(query));
     setEncontrados(dataEncontrados);
@@ -105,11 +106,13 @@ const ContactsView = () => {
             id="contacts-autocomplete"
             options={contacts}
             sx={{ width: 300 }}
+            clearOnBlur={false}
+            clearOnEscape={false}
             onInputChange={handleSearch}
             onChange={handleSelect}
             filterOptions={(options, state) => options.filter(option => option.name.toLowerCase().includes(state.inputValue.toLowerCase()))}
             getOptionLabel={(option) => option.name}
-            renderInput={(params) => <TextField {...params} label="Search for contacts" />}
+            renderInput={(params) => <TextField {...params} label="Search for contacts" value={searchValue} onChange={(e) => handleSearch(e, e.target.value)} />} // Actualiza el valor del input
             renderOption={(props, option) => (
               <li {...props} key={option.id}>
                 {option.name}

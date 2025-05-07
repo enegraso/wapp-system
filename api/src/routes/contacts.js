@@ -237,10 +237,18 @@ router.post("/add", async (req, res) => {
     let newUser = await Contacts.create(objUser);
     // si todo sale bien devuelvo el objeto agregado
     await newUser.setCategories(groups);
+
+    let addedUser = await Contacts.findOne({
+      include: { model: Category },
+      where: {
+        id: newUser.id
+      }
+    });
+
     console.log("Objeto de usuario guardado");
     res
       .status(200)
-      .json({ message: "Usuario admin generado correctamente", user: newUser });
+      .json({ message: "Usuario admin generado correctamente", user: addedUser });
   } catch (error) {
     // en caso de error lo devuelvo al frontend
     console.log(error);
