@@ -66,9 +66,9 @@ const AddContact = () => {
 
   return (
     <div className="container mx-auto px-4 py-5 flex flex-col flex-grow">
-                <FileInput />
+      <FileInput />
       <h2
-        className="text-left text-xl font-bold uppercase mb-2 mx-8 my-5"
+        className="text-left text-xl font-bold uppercase mb-2"
         style={{ letterSpacing: "2px" }}
       >
         Agregar contacto

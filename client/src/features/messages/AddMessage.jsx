@@ -87,8 +87,8 @@ const AddMessage = () => {
                 ...message,
                 sendeddate: fecha,
                 sendedtime: hora,
-                sended: response.data.status === "success" ? true : false,
-                result: response.data.status // "Mensaje enviado con éxito"
+                sended: response.data?.status === "success" ? true : false,
+                result: response.data?.status // "Mensaje enviado con éxito"
               }
               dispatch(messageAdd(objMess));
             })
@@ -162,8 +162,8 @@ const AddMessage = () => {
                 ...message,
                 sendeddate: fecha,
                 sendedtime: hora,
-                sended: response.data.status === "success" ? true : false,
-                result: response.data.status // "Mensaje enviado con éxito"
+                sended: response.data?.status === "success" ? true : false,
+                result: response.data?.status // "Mensaje enviado con éxito"
               }
 
               dispatch(messageAdd(objMess));
